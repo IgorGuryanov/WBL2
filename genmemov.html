@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Редактор фото</title>
+    <style>
+body {
+    background-color: rgb(245, 237, 226);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header {
+    padding-top: 100px;
+    padding-bottom: 20px;
+    width: 800px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+}
+
+.canvas {
+    border: 2px solid #ddd;
+    object-fit: cover;
+    min-width: 200px;
+    min-height: 200px;
+}
+
+.button {
+    background-color: darkblue;
+    color: aliceblue;
+    font-size: 16px;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: .3s ease;
+}
+
+.button:hover {
+    opacity: .7;
+}
+
+.input-file {
+	position: relative;
+	display: inline-block;
+}
+
+.input-file-text {
+	padding: 4px 15px;
+	line-height: 40px;
+	text-align: left;
+	display: block;
+	float: left;
+	box-sizing: border-box;
+	width: 200px;
+	border-radius: 50px 0px 0 50px;
+	border: 2px solid #ddd;
+}
+
+.input-file-btn {
+    position: relative;
+	display: inline-block;
+	cursor: pointer;
+	outline: none;
+	text-decoration: none;
+	font-size: 18px;
+	vertical-align: middle;
+	color: aliceblue;
+	text-align: center;
+	border-radius: 0 50px 50px 0;
+	background-color: darkblue;
+	padding: 15px 20px;
+	box-sizing: border-box;
+	border: none;
+	margin: 0;
+	transition: .3s ease;
+}
+
+.input-file input[type=file] {
+	position: absolute;
+	z-index: -1;
+	opacity: 0;
+	display: block;
+	width: 0;
+	height: 0;
+}
+
+.input-file:hover .input-file-btn {
+	opacity: .7;
+}
+
+.input-file:active .input-file-btn {
+    opacity: .7;
+}
+
+.wrapper-btn {
+    padding: 20px;
+}
+
+.wrapper-canvas {
+    display: flex;
+    gap: 20px;
+}
+
+.wrapper-filter {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.input-color {
+    background-color: transparent;
+    border-radius: 5px;
+    border: 2px solid #ddd;
+    width: 50px;
+    height: 50px;
+}
+
+.input {
+    padding: 4px 15px;
+	width: 150px;
+    height: 30px;
+	border-radius: 50px;
+	border: 2px solid #ddd;
+    font-size: 16px;
+}
+    </style>
+</head>
+<body>
+    <div class="header">
+        <label class="input-file">
+            <span class="input-file-text" type="text">Загрузите файл</span>
+            <input type="file" id="imageInput" name="file">        
+            <span class="input-file-btn">Выберите файл</span>
+        </label>
+    </div>
+    <div class="wrapper-canvas">
+        <canvas class="canvas" id="canvas"></canvas>
+        <div class="wrapper-filter">
+            <input class="input-color" type="color" id="textColorInput" value="#000000">
+            <input class="input" type="number" id="textSizeInput" placeholder="Размер текста">
+            <input class="input" type="text" id="textInput" placeholder="Введите текст">
+            <button class="button" id="addTextButton">Добавить текст</button>
+        </div>
+    </div>
+    <div class="wrapper-btn">
+        <button class="button" id="saveButton">Сохранить изображение</button>
+    </div>
+    <script src="genmemov.js"></script>
+</body>
+</html>
